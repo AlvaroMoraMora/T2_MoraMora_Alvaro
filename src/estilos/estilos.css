@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap");
+:root {
+  --bs-secondary: #F9FAFB;
+  --bs-secondary-rgb: 249,250,251;
+}
+
+#imagenLogo {
+  width: 70px;
+  height: 70px;
+}
+
+body {
+  font-family: "Inter Tight", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.imagenes-redes {
+  width: 30px;
+  height: 30px;
+}
+
+.inset {
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bg-gradiente {
+  background: linear-gradient(135deg, #2563EB, #0EA5E9);
+}
+
+.navbar-brand {
+  min-width: 0;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.overlay-soft h3 {
+  font-size: clamp(2rem, 2vw + 1.2rem, 3rem);
+  line-height: 1.2;
+}
+
+#carouselHero .overlay-soft p {
+  font-size: clamp(1.05rem, 1vw + 0.85rem, 1.3rem);
+}
+
+#carouselHero .overlay-soft .btn {
+  padding: 0.75rem 1.4rem;
+  font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  #imagenLogo {
+    width: 68px;
+    height: 68px;
+  }
+  .navbar-brand h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  #imagenLogo {
+    width: 48px;
+    height: 48px;
+  }
+  .navbar-brand h1 {
+    font-size: 1.25rem;
+  }
+}/*# sourceMappingURL=estilos.css.map */
