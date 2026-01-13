@@ -1,320 +1,315 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="../src/Imagenes/logo.svg" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
-        <link rel="stylesheet" href="../src/estilos/estilos.css" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../script.js"></script>
-        <title>Game Chronicle</title>
-    </head>
-  
-    <body class="bg-secondary">
-        <header class="sticky-top shadow">
-          <nav class="navbar navbar-dark bg-primary p-0">
-            <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
-              <a class="navbar-brand d-flex align-items-center px-3 flex-shrink-0" href="../index.html">
-                <img src="../src/Imagenes/logo.svg" class="m-2" id="imagenLogo" alt="">
-                <h1 class="mb-0 d-lg-block d-none">GameChronicle</h1>
-              </a>
 
-              <ul class="navbar-nav flex-lg-row gap-4 h5 d-none d-xl-flex">
-              <li class="nav-item"><a class="nav-link text-white" href="../index.html">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="./articulos.html">Artículos</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="../Webs Secundarias/comunidad.html">Comunidad</a></li>
-              </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../src/Imagenes/logo.svg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../src/estilos/estilos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../script.js"></script>
+  <title>Comunidad | Game Chronicle</title>
+</head>
 
-              <div class="d-flex align-items-center flex-nowrap px-3">
-                <div class="input-group d-xl-flex d-none m-2">
-                  <input type="search" class="form-control" placeholder="Buscar" aria-label="Buscar">
-                  <button class="btn btn-dark" type="button">Buscar</button>
-                </div>
+<body class="bg-secondary">
+  <header class="sticky-top shadow">
+    <nav class="navbar navbar-dark bg-primary p-0">
+      <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
+        <a class="navbar-brand d-flex align-items-center px-3 flex-shrink-0" href="../index.html">
+          <img src="../src/Imagenes/logo.svg" class="m-2" id="imagenLogo" alt="Logo GameChronicle">
+          <h1 class="mb-0 d-lg-block d-none">GameChronicle</h1>
+        </a>
 
-                <button class="navbar-toggler border-0 d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainOffcanvas" aria-controls="mainOffcanvas">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+        <ul class="navbar-nav flex-lg-row gap-4 h5 d-none d-xl-flex">
+          <li class="nav-item"><a class="nav-link text-white" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="./articulos.html">Artículos</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Comunidad</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center flex-nowrap px-3">
+          <div class="input-group d-xl-flex d-none m-2">
+            <input type="search" class="form-control" placeholder="Buscar" aria-label="Buscar">
+            <button class="btn btn-dark" type="button">Buscar</button>
+          </div>
+
+          <button class="navbar-toggler border-0 d-xl-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mainOffcanvas" aria-controls="mainOffcanvas">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Inicio del menú desplegable -->
+  <div class="offcanvas offcanvas-end bg-primary text-white" tabindex="-1" id="mainOffcanvas"
+    aria-labelledby="mainOffcanvasLabel" style="--bs-offcanvas-width: min(320px, 85vw);">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mainOffcanvasLabel">Menú</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column gap-3">
+      <ul class="navbar-nav gap-2">
+        <li class="nav-item"><a class="nav-link text-white" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="./articulos.html">Artículos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Comunidad</a></li>
+      </ul>
+
+      <div class="input-group">
+        <input type="search" class="form-control" placeholder="Buscar" aria-label="Buscar">
+        <button class="btn btn-dark" type="button">Buscar</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="bg-secondary container-fluid p-4 shadow">
+    <section class="container-lg">
+      <div class="card shadow border-0 rounded-4 bg-gradiente text-light formulario">
+        <div class="card-body p-4 p-md-5">
+          <div class="text-center mb-4">
+            <p class="text-uppercase text-light small mb-1 badge bg-dark">Acceso a la comunidad</p>
+            <h2 class="fw-bold">Completa tu perfil de gamer</h2>
+            <p class="text-muted mb-0">Necesitamos algunos datos para personalizar tu experiencia y mantener segura a la
+              comunidad.</p>
+          </div>
+
+          <form class="row g-4">
+            <div class="col-md-6">
+              <label for="nombreCompleto" class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="nombreCompleto" placeholder="Tu nombre y apellidos" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="alias" class="form-label">Alias en la comunidad</label>
+              <input type="text" class="form-control" id="alias" placeholder="Ej. ChronoHunter" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="correo" class="form-label">Correo electr&oacute;nico</label>
+              <input type="email" class="form-control" id="correo" placeholder="nombre@email.com" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="telefono" class="form-label">Tel&eacute;fono de contacto</label>
+              <input type="tel" class="form-control" id="telefono" placeholder="+34 600 000 000">
+            </div>
+
+            <div class="col-md-6">
+              <label for="region" class="form-label">Ubicaci&oacute;n</label>
+              <select id="region" class="form-select" required>
+                <option value="">Selecciona una opci&oacute;n</option>
+                <option value="eu">Europa</option>
+                <option value="latam">Latinoam&eacute;rica</option>
+                <option value="na">Norteam&eacute;rica</option>
+                <option value="other">Otra regi&oacute;n</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="plataforma" class="form-label">Plataforma principal</label>
+              <select id="plataforma" class="form-select" required>
+                <option value="">Selecciona una plataforma</option>
+                <option value="pc">PC</option>
+                <option value="playstation">PlayStation</option>
+                <option value="xbox">Xbox</option>
+                <option value="switch">Nintendo Switch</option>
+                <option value="mobile">M&oacute;vil</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label for="generos" class="form-label">Géneros favoritos</label>
+              <select id="generos" class="form-select" multiple>
+                <option value="fps">FPS / Shooters</option>
+                <option value="rpg">RPG</option>
+                <option value="aventura">Aventura narrativa</option>
+                <option value="mmo">MMO / Online</option>
+                <option value="lucha">Lucha</option>
+                <option value="estrategia">Estrategia</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label d-block">Nivel de experiencia</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="experiencia" id="novato" value="novato" checked>
+                <label class="form-check-label" for="novato">Reci&eacute;n llegado</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="experiencia" id="intermedio" value="intermedio">
+                <label class="form-check-label" for="intermedio">Intermedio</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="experiencia" id="veterano" value="veterano">
+                <label class="form-check-label" for="veterano">Veterano competitivo</label>
               </div>
             </div>
-          </nav>
-        </header>
 
-        <!-- Inicio del menú desplegable -->
-        <div class="offcanvas offcanvas-end bg-primary text-white" tabindex="-1" id="mainOffcanvas" aria-labelledby="mainOffcanvasLabel" style="--bs-offcanvas-width: min(320px, 85vw);">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="mainOffcanvasLabel">Menú</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-          </div>
-
-          <div class="offcanvas-body d-flex flex-column gap-3">
-            <ul class="navbar-nav gap-2">
-              <li class="nav-item"><a class="nav-link text-white" href="../index.html">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="./articulos.html">Artículos</a></li>
-              <li class="nav-item"><a class="nav-link text-white" href="../Webs Secundarias/comunidad.html">Comunidad</a></li>
-            </ul>
-            
-            <div class="input-group">
-              <input type="search" class="form-control" placeholder="Buscar" aria-label="Buscar">
-              <button class="btn btn-dark" type="button">Buscar</button>
+            <div class="col-md-6">
+              <label class="form-label d-block">Disponibilidad semanal</label>
+              <div class="d-flex flex-wrap gap-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="weeknights" id="weeknights">
+                  <label class="form-check-label" for="weeknights">Noches entre semana</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="weekends" id="weekends">
+                  <label class="form-check-label" for="weekends">Fines de semana</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="mornings" id="mornings">
+                  <label class="form-check-label" for="mornings">Ma&ntilde;anas</label>
+                </div>
+              </div>
             </div>
-          </div>
+
+            <div class="col-md-6">
+              <label for="discord" class="form-label">Perfil de Discord o red social</label>
+              <input type="url" class="form-control" id="discord" placeholder="https://discord.gg/tuusuario">
+            </div>
+
+            <div class="col-md-6">
+              <label for="clan" class="form-label">&iquest;Perteneces a un clan o equipo?</label>
+              <input type="text" class="form-control" id="clan" placeholder="Nombre del clan / equipo">
+            </div>
+
+            <div class="col-12">
+              <label for="motivo" class="form-label">Cu&eacute;ntanos por qu&eacute; quieres entrar</label>
+              <textarea class="form-control" id="motivo" rows="4"
+                placeholder="Objetivos, juegos que quieres organizar, roles preferidos..." required></textarea>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="newsletter">
+                <label class="form-check-label" for="newsletter">Deseo recibir recordatorios de eventos y novedades de
+                  la comunidad.</label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="aceptaNormas" required>
+                <label class="form-check-label" for="aceptaNormas">
+                  Acepto el c&oacute;digo de conducta y la pol&iacute;tica de privacidad de Game Chronicle.
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex justify-content-end gap-3">
+              <button type="reset" class="btn btn-danger" data-bs-toggle="popover"
+                data-bs-title="Acción aún no disponible"
+                data-bs-content="¡Todavía no hemos implementado esta funcionalidad!, prueba más tarde.">
+                Borrar todo
+              </button>
+
+              <button type="submit" class="btn btn-light text-primary fw-semibold" data-bs-toggle="popover"
+                data-bs-title="Acción aún no disponible"
+                data-bs-content="¡Todavía no hemos implementado esta funcionalidad!, prueba más tarde.">
+                Enviar solicitud
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-primary tx-primario pt-4 pb-1 text-light shadow">
+    <div class="container">
+      <div class="row border-bottom border-light row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 g-lg-0">
+        <div class="col">
+          <h6>GameChronicle</h6>
+
+          <ul class="list-unstyled">
+            <li>
+              <a class="text-decoration-none link-light" href="#">Quienes Somos</a>
+            </li>
+
+            <li>
+              <a class="text-decoration-none link-light" href="#">Contacto</a>
+            </li>
+
+            <li>
+              <a class="text-decoration-none link-light" href="#">Avisos Legales</a>
+            </li>
+          </ul>
         </div>
 
-        <main class="bg-secondary container-fluid p-4 shadow">
-            <section class="container-lg">
-                <div class="card shadow border-0 rounded-4 bg-gradiente text-light formulario">
-                    <div class="card-body p-4 p-md-5">
-                        <div class="text-center mb-4">
-                            <p class="text-uppercase text-light small mb-1 badge bg-dark">Acceso a la comunidad</p>
-                            <h2 class="fw-bold">Completa tu perfil de gamer</h2>
-                            <p class="text-muted mb-0">Necesitamos algunos datos para personalizar tu experiencia y mantener segura a la comunidad.</p>
-                        </div>
+        <div class="col">
+          <h6>Secciones</h6>
 
-                        <form class="row g-4">
-                            <div class="col-md-6">
-                                <label for="nombreCompleto" class="form-label">Nombre completo</label>
-                                <input type="text" class="form-control" id="nombreCompleto" placeholder="Tu nombre y apellidos" required>
-                            </div>
+          <ul class="list-unstyled">
+            <li>
+              <a class="text-decoration-none link-light" href="../index.html">Inicio</a>
+            </li>
 
-                            <div class="col-md-6">
-                                <label for="alias" class="form-label">Alias en la comunidad</label>
-                                <input type="text" class="form-control" id="alias" placeholder="Ej. ChronoHunter" required>
-                            </div>
+            <li>
+              <a class="text-decoration-none link-light" href="./articulos.html">Artículos</a>
+            </li>
 
-                            <div class="col-md-6">
-                                <label for="correo" class="form-label">Correo electr&oacute;nico</label>
-                                <input type="email" class="form-control" id="correo" placeholder="nombre@email.com" required>
-                            </div>
+            <li>
+              <a class="text-decoration-none link-light" href="#">Comunidad</a>
+            </li>
+          </ul>
+        </div>
 
-                            <div class="col-md-6">
-                                <label for="telefono" class="form-label">Tel&eacute;fono de contacto</label>
-                                <input type="tel" class="form-control" id="telefono" placeholder="+34 600 000 000">
-                            </div>
+        <div class="col">
+          <h6>Preguntas Frecuentes</h6>
 
-                            <div class="col-md-6">
-                                <label for="region" class="form-label">Ubicaci&oacute;n</label>
-                                <select id="region" class="form-select" required>
-                                    <option value="">Selecciona una opci&oacute;n</option>
-                                    <option value="eu">Europa</option>
-                                    <option value="latam">Latinoam&eacute;rica</option>
-                                    <option value="na">Norteam&eacute;rica</option>
-                                    <option value="other">Otra regi&oacute;n</option>
-                                </select>
-                            </div>
+          <ul class="list-unstyled">
+            <li>
+              <a class="text-decoration-none link-light" href="#">FAQs</a>
+            </li>
 
-                            <div class="col-md-6">
-                                <label for="plataforma" class="form-label">Plataforma principal</label>
-                                <select id="plataforma" class="form-select" required>
-                                    <option value="">Selecciona una plataforma</option>
-                                    <option value="pc">PC</option>
-                                    <option value="playstation">PlayStation</option>
-                                    <option value="xbox">Xbox</option>
-                                    <option value="switch">Nintendo Switch</option>
-                                    <option value="mobile">M&oacute;vil</option>
-                                </select>
-                            </div>
+            <li>
+              <a class="text-decoration-none link-light" href="#">Soporte</a>
+            </li>
+          </ul>
+        </div>
 
-                            <div class="col-12">
-                                <label for="generos" class="form-label">Géneros favoritos</label>
-                                <select id="generos" class="form-select" multiple>
-                                    <option value="fps">FPS / Shooters</option>
-                                    <option value="rpg">RPG</option>
-                                    <option value="aventura">Aventura narrativa</option>
-                                    <option value="mmo">MMO / Online</option>
-                                    <option value="lucha">Lucha</option>
-                                    <option value="estrategia">Estrategia</option>
-                                </select>
-                            </div>
+        <div class="col">
+          <h6>Redes Sociales</h6>
 
-                            <div class="col-md-6">
-                                <label class="form-label d-block">Nivel de experiencia</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="experiencia" id="novato" value="novato" checked>
-                                    <label class="form-check-label" for="novato">Reci&eacute;n llegado</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="experiencia" id="intermedio" value="intermedio">
-                                    <label class="form-check-label" for="intermedio">Intermedio</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="experiencia" id="veterano" value="veterano">
-                                    <label class="form-check-label" for="veterano">Veterano competitivo</label>
-                                </div>
-                            </div>
+          <ul class="list-unstyled d-flex gap-3">
+            <li>
+              <a class="text-decoration-none" href="#">
+                <img src="../src/Imagenes/instagram.svg" class="imagenes-redes" alt="Instagram" data-bs-toggle="tooltip"
+                  data-bs-placement="top" data-bs-custom-class="tooltip-instagram" data-bs-title="Instagram" />
+              </a>
+            </li>
 
-                            <div class="col-md-6">
-                                <label class="form-label d-block">Disponibilidad semanal</label>
-                                <div class="d-flex flex-wrap gap-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="weeknights" id="weeknights">
-                                        <label class="form-check-label" for="weeknights">Noches entre semana</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="weekends" id="weekends">
-                                        <label class="form-check-label" for="weekends">Fines de semana</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="mornings" id="mornings">
-                                        <label class="form-check-label" for="mornings">Ma&ntilde;anas</label>
-                                    </div>
-                                </div>
-                            </div>
+            <li>
+              <a class="text-decoration-none" href="#">
+                <img src="../src/Imagenes/Twitter.svg" class="imagenes-redes" alt="Twitter" data-bs-toggle="tooltip"
+                  data-bs-placement="top" data-bs-custom-class="tooltip-twitter" data-bs-title="Twitter" />
+              </a>
+            </li>
 
-                            <div class="col-md-6">
-                                <label for="discord" class="form-label">Perfil de Discord o red social</label>
-                                <input type="url" class="form-control" id="discord" placeholder="https://discord.gg/tuusuario">
-                            </div>
+            <li>
+              <a class="text-decoration-none" href="#">
+                <img src="../src/Imagenes/tiktok.svg" class="imagenes-redes" alt="Tiktok" data-bs-toggle="tooltip"
+                  data-bs-placement="top" data-bs-custom-class="tooltip-tiktok" data-bs-title="Tiktok" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-                            <div class="col-md-6">
-                                <label for="clan" class="form-label">&iquest;Perteneces a un clan o equipo?</label>
-                                <input type="text" class="form-control" id="clan" placeholder="Nombre del clan / equipo">
-                            </div>
+      <div class="d-flex justify-content-between pt-2">
+        <p>© 2025 Game Chronicle</p>
 
-                            <div class="col-12">
-                                <label for="motivo" class="form-label">Cu&eacute;ntanos por qu&eacute; quieres entrar</label>
-                                <textarea class="form-control" id="motivo" rows="4" placeholder="Objetivos, juegos que quieres organizar, roles preferidos..." required></textarea>
-                            </div>
+        <ul class="list-unstyled d-flex gap-3">
+          <li><a class="text-decoration-none link-light" href="#">Privacidad</a></li>
+          <li><a class="text-decoration-none link-light" href="#">Cookies</a></li>
+          <li><a class="text-decoration-none link-light" href="#">Preferencias</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
 
-                            <div class="col-12">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="newsletter">
-                                    <label class="form-check-label" for="newsletter">Deseo recibir recordatorios de eventos y novedades de la comunidad.</label>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="aceptaNormas" required>
-                                    <label class="form-check-label" for="aceptaNormas">
-                                        Acepto el c&oacute;digo de conducta y la pol&iacute;tica de privacidad de Game Chronicle.
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 d-flex justify-content-end gap-3">
-                                <button type="reset" class="btn btn-danger" 
-                                    data-bs-toggle="popover"
-                                    data-bs-title="Acción aún no disponible"
-                                    data-bs-content="¡Todavía no hemos implementado esta funcionalidad!, prueba más tarde.">
-                                    Borrar todo
-                                </button>
-                                
-                                <button type="submit" class="btn btn-light text-primary fw-semibold"   
-                                    data-bs-toggle="popover"
-                                    data-bs-title="Acción aún no disponible"
-                                    data-bs-content="¡Todavía no hemos implementado esta funcionalidad!, prueba más tarde.">
-                                    Enviar solicitud
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="bg-primary tx-primario pt-4 pb-1 text-light shadow">
-          <div class="container">
-            <div class="row border-bottom border-light row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 g-lg-0">
-              <div class="col">
-                <h6>GameChronicle</h6>
-
-                <ul class="list-unstyled">
-                  <li>
-                    <a class="text-decoration-none link-light" href="#">Quienes Somos</a>
-                  </li>
-
-                  <li>
-                    <a class="text-decoration-none link-light" href="#">Contacto</a>
-                  </li>
-
-                  <li>
-                    <a class="text-decoration-none link-light" href="#">Avisos Legales</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col">
-                <h6>Secciones</h6>
-
-                <ul class="list-unstyled">
-                  <li>
-                      <a class="text-decoration-none link-light" href="../index.html">Inicio</a>
-                  </li>
-
-                  <li>
-                      <a class="text-decoration-none link-light" href="./articulos.html">Artículos</a>
-                  </li>
-
-                  <li>
-                      <a class="text-decoration-none link-light" href="../Webs Secundarias/comunidad.html">Comunidad</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col">
-                <h6>Preguntas Frecuentes</h6>
-
-                <ul class="list-unstyled">
-                  <li>
-                      <a class="text-decoration-none link-light" href="#">FAQs</a>
-                  </li>
-
-                  <li>
-                      <a class="text-decoration-none link-light" href="#">Soporte</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col">
-                <h6>Redes Sociales</h6>
-
-                <ul class="list-unstyled d-flex gap-3">
-                  <li>
-                    <a class="text-decoration-none" href="#">
-                        <img src="../src/Imagenes/instagram.svg" 
-                            class="imagenes-redes" alt="Instagram"
-                            data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip-instagram"
-                            data-bs-title="Instagram" />
-                    </a>
-                  </li>
-
-                  <li>
-                    <a class="text-decoration-none" href="#">
-                        <img src="../src/Imagenes/Twitter.svg" 
-                            class="imagenes-redes" alt="Twitter" 
-                            data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip-twitter"
-                            data-bs-title="Twitter"/>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a class="text-decoration-none" href="#">
-                        <img src="../src/Imagenes/tiktok.svg" 
-                            class="imagenes-redes" alt="Tiktok" 
-                            data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip-tiktok"
-                            data-bs-title="Tiktok"/>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-between pt-2">
-              <p>© 2025 Game Chronicle</p>
-
-              <ul class="list-unstyled d-flex gap-3">
-                <li><a class="text-decoration-none link-light" href="#">Privacidad</a></li>
-                <li><a class="text-decoration-none link-light" href="#">Cookies</a></li>
-                <li><a class="text-decoration-none link-light" href="#">Preferencias</a></li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-    </body>
 </html>
-
-
