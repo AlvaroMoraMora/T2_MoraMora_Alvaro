@@ -1,12 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap");
+
 :root {
   --bs-secondary: #f9fafb;
   --bs-secondary-rgb: 249, 250, 251;
-}
-
-#imagenLogo {
-  width: 70px;
-  height: 70px;
 }
 
 body {
@@ -28,13 +24,18 @@ select,
   cursor: none !important;
 }
 
+.bg-gradiente {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+}
+
 .imagenes-redes {
   width: 30px;
   height: 30px;
 }
 
-.bg-gradiente {
-  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+#imagenLogo {
+  width: 70px;
+  height: 70px;
 }
 
 .navbar-brand {
@@ -50,60 +51,34 @@ select,
   background: #1e293b;
   padding: 14px 0;
   white-space: nowrap;
-  border-left: 4px solid #2563EB;
-  border-right: 4px solid #0EA5E9;
+  border-left: 4px solid #2563eb;
+  border-right: 4px solid #0ea5e9;
+
+  &:hover .ticker {
+    animation-play-state: paused;
+  }
 }
 
 .ticker {
   display: inline-block;
   animation: ticker 22s linear infinite;
-}
 
-.ticker span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 40px;
-  color: white;
-  font-weight: 500;
-}
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 40px;
+    color: white;
+    font-weight: 500;
+  }
 
-.ticker .icon {
-  background: linear-gradient(135deg, #2563EB, #0EA5E9);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-@media (max-width: 992px) {
-  #imagenLogo {
-    width: 68px;
-    height: 68px;
+  .icon {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
   }
-  .navbar-brand h1 {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 768px) {
-  #imagenLogo {
-    width: 48px;
-    height: 48px;
-  }
-  .navbar-brand h1 {
-    font-size: 1.25rem;
-  }
-}
-@keyframes ticker {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-.ticker-container:hover .ticker {
-  animation-play-state: paused;
 }
 
 #custom-cursor {
@@ -129,9 +104,6 @@ body.hovering .pokeball-bottom {
   transform: translateY(8px);
 }
 
-/* ============================================
-   HERO CON VIDEO DE FONDO
-   ============================================ */
 .hero-video-bg {
   position: relative;
   width: 100%;
@@ -211,12 +183,21 @@ body.hovering .pokeball-bottom {
   color: white;
   opacity: 0.7;
   animation: bounce 2s infinite;
+
+  span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }
 
-.scroll-indicator span {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes bounce {
@@ -227,4 +208,26 @@ body.hovering .pokeball-bottom {
   50% {
     transform: translateX(-50%) translateY(10px);
   }
-} /*# sourceMappingURL=estilos.css.map */
+}
+
+@media (max-width: 992px) {
+  #imagenLogo {
+    width: 68px;
+    height: 68px;
+  }
+
+  .navbar-brand h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #imagenLogo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .navbar-brand h1 {
+    font-size: 1.25rem;
+  }
+}
