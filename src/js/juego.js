@@ -1,168 +1,212 @@
-const canvas = document.getElementById("pongCanvas");
-const ctx = canvas.getContext("2d");
+const lienzo = document.getElementById("pongCanvas");
+const contexto = lienzo.getContext("2d");
 
-const paddleWidth = 10,
-  paddleHeight = 80;
-let leftPaddleY = (canvas.height - paddleHeight) / 2;
-let rightPaddleY = (canvas.height - paddleHeight) / 2;
-const paddleSpeed = 8;
+const ANCHO_PALETA = 10;
+const ALTO_PALETA = 80;
+let paletaIzquierdaY = (lienzo.height - ALTO_PALETA) / 2;
+let paletaDerechaY = (lienzo.height - ALTO_PALETA) / 2;
+const VELOCIDAD_PALETA = 8;
 
-let ballX = canvas.width / 2,
-  ballY = canvas.height / 2;
-let ballSize = 13;
+let pelotaX = lienzo.width / 2;
+let pelotaY = lienzo.height / 2;
+let tamanoPelota = 13;
 
 const VELOCIDAD_INICIAL = 3;
 const VELOCIDAD_MAXIMA = 4.5;
 const INCREMENTO_VELOCIDAD = 0.15;
 
-let ballSpeedX = VELOCIDAD_INICIAL,
-  ballSpeedY = VELOCIDAD_INICIAL;
+let velocidadPelotaX = VELOCIDAD_INICIAL;
+let velocidadPelotaY = VELOCIDAD_INICIAL;
 
-let scoreLeft = 0,
-  scoreRight = 0;
+let puntuacionIzquierda = 0;
+let puntuacionDerecha = 0;
+
+const PUNTOS_PARA_GANAR = 10;
+let juegoTerminado = false;
+let ganador = null;
 
 let juegoIniciado = false;
 let cuentaAtras = 0;
 
-const keys = {};
-window.addEventListener("keydown", (e) => (keys[e.key] = true));
-window.addEventListener("keyup", (e) => (keys[e.key] = false));
+const teclas = {};
+window.addEventListener("keydown", (e) => (teclas[e.key] = true));
+window.addEventListener("keyup", (e) => (teclas[e.key] = false));
 
-function resetBall() {
-  ballX = canvas.width / 2;
-  ballY = canvas.height / 2;
-  const direccion = ballSpeedX > 0 ? -1 : 1;
-  ballSpeedX = VELOCIDAD_INICIAL * direccion;
-  ballSpeedY = VELOCIDAD_INICIAL * (ballSpeedY > 0 ? 1 : -1);
+function reiniciarPelota() {
+  pelotaX = lienzo.width / 2;
+  pelotaY = lienzo.height / 2;
+  const direccion = velocidadPelotaX > 0 ? -1 : 1;
+  velocidadPelotaX = VELOCIDAD_INICIAL * direccion;
+  velocidadPelotaY = VELOCIDAD_INICIAL * (velocidadPelotaY > 0 ? 1 : -1);
 }
 
 function aumentarVelocidad() {
-  const velocidadActual = Math.abs(ballSpeedX);
+  const velocidadActual = Math.abs(velocidadPelotaX);
   if (velocidadActual < VELOCIDAD_MAXIMA) {
-    const signoX = ballSpeedX > 0 ? 1 : -1;
-    const signoY = ballSpeedY > 0 ? 1 : -1;
+    const signoX = velocidadPelotaX > 0 ? 1 : -1;
+    const signoY = velocidadPelotaY > 0 ? 1 : -1;
     const nuevaVelocidad = Math.min(velocidadActual + INCREMENTO_VELOCIDAD, VELOCIDAD_MAXIMA);
-    ballSpeedX = nuevaVelocidad * signoX;
-    ballSpeedY = nuevaVelocidad * signoY;
+    velocidadPelotaX = nuevaVelocidad * signoX;
+    velocidadPelotaY = nuevaVelocidad * signoY;
   }
 }
 
-function update() {
+function actualizar() {
   if (!juegoIniciado) return;
 
-  if (keys["w"] && leftPaddleY > 0) leftPaddleY -= paddleSpeed;
-  if (keys["s"] && leftPaddleY < canvas.height - paddleHeight)
-    leftPaddleY += paddleSpeed;
+  if (teclas["w"] && paletaIzquierdaY > 0) paletaIzquierdaY -= VELOCIDAD_PALETA;
+  if (teclas["s"] && paletaIzquierdaY < lienzo.height - ALTO_PALETA)
+    paletaIzquierdaY += VELOCIDAD_PALETA;
 
-  if (keys["ArrowUp"] && rightPaddleY > 0) rightPaddleY -= paddleSpeed;
-  if (keys["ArrowDown"] && rightPaddleY < canvas.height - paddleHeight)
-    rightPaddleY += paddleSpeed;
+  if (teclas["ArrowUp"] && paletaDerechaY > 0) paletaDerechaY -= VELOCIDAD_PALETA;
+  if (teclas["ArrowDown"] && paletaDerechaY < lienzo.height - ALTO_PALETA)
+    paletaDerechaY += VELOCIDAD_PALETA;
 
-  ballX += ballSpeedX;
-  ballY += ballSpeedY;
+  pelotaX += velocidadPelotaX;
+  pelotaY += velocidadPelotaY;
 
-  if (ballY <= 0 || ballY + ballSize >= canvas.height) {
-    ballSpeedY = -ballSpeedY;
+  if (pelotaY <= 0 || pelotaY + tamanoPelota >= lienzo.height) {
+    velocidadPelotaY = -velocidadPelotaY;
   }
 
   if (
-    ballX <= paddleWidth &&
-    ballY > leftPaddleY &&
-    ballY < leftPaddleY + paddleHeight
+    pelotaX <= ANCHO_PALETA &&
+    pelotaY > paletaIzquierdaY &&
+    pelotaY < paletaIzquierdaY + ALTO_PALETA
   ) {
-    ballSpeedX = -ballSpeedX;
+    velocidadPelotaX = -velocidadPelotaX;
     aumentarVelocidad();
   }
 
   if (
-    ballX >= canvas.width - paddleWidth - ballSize &&
-    ballY > rightPaddleY &&
-    ballY < rightPaddleY + paddleHeight
+    pelotaX >= lienzo.width - ANCHO_PALETA - tamanoPelota &&
+    pelotaY > paletaDerechaY &&
+    pelotaY < paletaDerechaY + ALTO_PALETA
   ) {
-    ballSpeedX = -ballSpeedX;
+    velocidadPelotaX = -velocidadPelotaX;
     aumentarVelocidad();
   }
 
-  if (ballX < 0) {
-    scoreRight++;
-    resetBall();
-  } else if (ballX > canvas.width) {
-    scoreLeft++;
-    resetBall();
+  if (pelotaX < 0) {
+    puntuacionDerecha++;
+    if (puntuacionDerecha >= PUNTOS_PARA_GANAR) {
+      juegoTerminado = true;
+      juegoIniciado = false;
+      ganador = "Jugador 2";
+    } else {
+      reiniciarPelota();
+    }
+  } else if (pelotaX > lienzo.width) {
+    puntuacionIzquierda++;
+    if (puntuacionIzquierda >= PUNTOS_PARA_GANAR) {
+      juegoTerminado = true;
+      juegoIniciado = false;
+      ganador = "Jugador 1";
+    } else {
+      reiniciarPelota();
+    }
   }
 }
 
-function drawStartScreen() {
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+function dibujarPantallaInicio() {
+  contexto.fillStyle = "#000";
+  contexto.fillRect(0, 0, lienzo.width, lienzo.height);
 
-  ctx.fillStyle = "#fff";
-  ctx.font = "bold 40px Inter Tight, sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("PONG", canvas.width / 2, canvas.height / 2 - 40);
+  contexto.fillStyle = "#fff";
+  contexto.font = "bold 40px Inter Tight, sans-serif";
+  contexto.textAlign = "center";
+  contexto.fillText("PONG", lienzo.width / 2, lienzo.height / 2 - 40);
 
-  ctx.font = "18px Inter Tight, sans-serif";
-  ctx.fillText("Jugador 1: W / S", canvas.width / 2, canvas.height / 2 + 20);
-  ctx.fillText("Jugador 2: ↑ / ↓", canvas.width / 2, canvas.height / 2 + 50);
+  contexto.font = "18px Inter Tight, sans-serif";
+  contexto.fillText("Jugador 1: W / S", lienzo.width / 2, lienzo.height / 2 + 20);
+  contexto.fillText("Jugador 2: ↑ / ↓", lienzo.width / 2, lienzo.height / 2 + 50);
 }
 
-function draw() {
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+function dibujar() {
+  contexto.fillStyle = "#000";
+  contexto.fillRect(0, 0, lienzo.width, lienzo.height);
 
-  ctx.strokeStyle = "#fff";
-  ctx.setLineDash([10, 10]);
-  ctx.beginPath();
-  ctx.moveTo(canvas.width / 2, 0);
-  ctx.lineTo(canvas.width / 2, canvas.height);
-  ctx.stroke();
+  contexto.strokeStyle = "#fff";
+  contexto.setLineDash([10, 10]);
+  contexto.beginPath();
+  contexto.moveTo(lienzo.width / 2, 0);
+  contexto.lineTo(lienzo.width / 2, lienzo.height);
+  contexto.stroke();
 
-  ctx.fillStyle = "#fff";
-  ctx.fillRect(0, leftPaddleY, paddleWidth, paddleHeight);
-  ctx.fillRect(
-    canvas.width - paddleWidth,
-    rightPaddleY,
-    paddleWidth,
-    paddleHeight,
+  contexto.fillStyle = "#fff";
+  contexto.fillRect(0, paletaIzquierdaY, ANCHO_PALETA, ALTO_PALETA);
+  contexto.fillRect(
+    lienzo.width - ANCHO_PALETA,
+    paletaDerechaY,
+    ANCHO_PALETA,
+    ALTO_PALETA,
   );
 
-  ctx.fillRect(ballX, ballY, ballSize, ballSize);
+  contexto.fillRect(pelotaX, pelotaY, tamanoPelota, tamanoPelota);
 
-  ctx.font = "30px Courier New";
-  ctx.textAlign = "center";
-  ctx.fillText(scoreLeft, canvas.width / 4, 50);
-  ctx.fillText(scoreRight, (canvas.width / 4) * 3, 50);
+  contexto.font = "30px Courier New";
+  contexto.textAlign = "center";
+  contexto.fillText(puntuacionIzquierda, lienzo.width / 4, 50);
+  contexto.fillText(puntuacionDerecha, (lienzo.width / 4) * 3, 50);
 }
 
-function drawCountdown() {
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+function dibujarCuentaAtras() {
+  contexto.fillStyle = "#000";
+  contexto.fillRect(0, 0, lienzo.width, lienzo.height);
 
-  ctx.fillStyle = "#fff";
-  ctx.font = "bold 80px Inter Tight, sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText(cuentaAtras, canvas.width / 2, canvas.height / 2 + 20);
+  contexto.fillStyle = "#fff";
+  contexto.font = "bold 80px Inter Tight, sans-serif";
+  contexto.textAlign = "center";
+  contexto.fillText(cuentaAtras, lienzo.width / 2, lienzo.height / 2 + 20);
 
-  ctx.font = "18px Inter Tight, sans-serif";
-  ctx.fillText("¡Prepárate!", canvas.width / 2, canvas.height / 2 + 70);
+  contexto.font = "18px Inter Tight, sans-serif";
+  contexto.fillText("¡Prepárate!", lienzo.width / 2, lienzo.height / 2 + 70);
 }
 
-function gameLoop() {
-  if (juegoIniciado) {
-    update();
-    draw();
+function dibujarPantallaVictoria() {
+  contexto.fillStyle = "#000";
+  contexto.fillRect(0, 0, lienzo.width, lienzo.height);
+
+  contexto.fillStyle = "#fff";
+  contexto.font = "bold 40px Inter Tight, sans-serif";
+  contexto.textAlign = "center";
+  contexto.fillText("¡" + ganador + " gana!", lienzo.width / 2, lienzo.height / 2 - 30);
+
+  contexto.font = "30px Courier New";
+  contexto.fillText(puntuacionIzquierda + " - " + puntuacionDerecha, lienzo.width / 2, lienzo.height / 2 + 20);
+
+  contexto.font = "18px Inter Tight, sans-serif";
+  contexto.fillText("Pulsa el botón para volver a jugar", lienzo.width / 2, lienzo.height / 2 + 70);
+}
+
+function buclePrincipal() {
+  if (juegoTerminado) {
+    dibujarPantallaVictoria();
+  } else if (juegoIniciado) {
+    actualizar();
+    dibujar();
   } else if (cuentaAtras > 0) {
-    drawCountdown();
+    dibujarCuentaAtras();
   } else {
-    drawStartScreen();
+    dibujarPantallaInicio();
   }
-  requestAnimationFrame(gameLoop);
+  requestAnimationFrame(buclePrincipal);
 }
 
 function iniciarJuego() {
   const btnIniciar = document.getElementById("btnIniciarJuego");
   if (btnIniciar) {
     btnIniciar.style.display = "none";
+  }
+
+  if (juegoTerminado) {
+    puntuacionIzquierda = 0;
+    puntuacionDerecha = 0;
+    juegoTerminado = false;
+    ganador = null;
+    reiniciarPelota();
+    paletaIzquierdaY = (lienzo.height - ALTO_PALETA) / 2;
+    paletaDerechaY = (lienzo.height - ALTO_PALETA) / 2;
   }
 
   cuentaAtras = 3;
@@ -175,6 +219,4 @@ function iniciarJuego() {
   }, 1000);
 }
 
-gameLoop();
-
-
+buclePrincipal();

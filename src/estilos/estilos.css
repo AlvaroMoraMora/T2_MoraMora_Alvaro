@@ -4,11 +4,6 @@
   --bs-secondary-rgb: 249, 250, 251;
 }
 
-#imagenLogo {
-  width: 70px;
-  height: 70px;
-}
-
 body {
   font-family: "Inter Tight", "Inter", system-ui, -apple-system, sans-serif;
   cursor: none;
@@ -23,13 +18,18 @@ select,
   cursor: none !important;
 }
 
+.bg-gradiente {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+}
+
 .imagenes-redes {
   width: 30px;
   height: 30px;
 }
 
-.bg-gradiente {
-  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+#imagenLogo {
+  width: 70px;
+  height: 70px;
 }
 
 .navbar-brand {
@@ -45,15 +45,17 @@ select,
   background: #1e293b;
   padding: 14px 0;
   white-space: nowrap;
-  border-left: 4px solid #2563EB;
-  border-right: 4px solid #0EA5E9;
+  border-left: 4px solid #2563eb;
+  border-right: 4px solid #0ea5e9;
+}
+.ticker-container:hover .ticker {
+  animation-play-state: paused;
 }
 
 .ticker {
   display: inline-block;
   animation: ticker 22s linear infinite;
 }
-
 .ticker span {
   display: inline-flex;
   align-items: center;
@@ -62,43 +64,12 @@ select,
   color: white;
   font-weight: 500;
 }
-
 .ticker .icon {
-  background: linear-gradient(135deg, #2563EB, #0EA5E9);
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
   padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 700;
-}
-
-@media (max-width: 992px) {
-  #imagenLogo {
-    width: 68px;
-    height: 68px;
-  }
-  .navbar-brand h1 {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 768px) {
-  #imagenLogo {
-    width: 48px;
-    height: 48px;
-  }
-  .navbar-brand h1 {
-    font-size: 1.25rem;
-  }
-}
-@keyframes ticker {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-.ticker-container:hover .ticker {
-  animation-play-state: paused;
 }
 
 #custom-cursor {
@@ -109,6 +80,11 @@ select,
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.08s ease-out;
+}
+@media (pointer: coarse) {
+  #custom-cursor {
+    display: none;
+  }
 }
 
 .pokeball-top,
@@ -124,9 +100,6 @@ body.hovering .pokeball-bottom {
   transform: translateY(8px);
 }
 
-/* ============================================
-   HERO CON VIDEO DE FONDO
-   ============================================ */
 .hero-video-bg {
   position: relative;
   width: 100%;
@@ -201,20 +174,136 @@ body.hovering .pokeball-bottom {
   gap: 0.5rem;
   color: white;
   opacity: 0.7;
-  animation: bounce 2s infinite;
+  animation: bounce 1s infinite;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  transition: opacity 0.3s ease;
 }
-
+.scroll-indicator:hover {
+  opacity: 1;
+}
 .scroll-indicator span {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 @keyframes bounce {
   0%, 100% {
     transform: translateX(-50%) translateY(0);
   }
   50% {
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(20px);
   }
-} /*# sourceMappingURL=estilos.css.map */
+}
+@media (max-width: 992px) {
+  #imagenLogo {
+    width: 68px;
+    height: 68px;
+  }
+  .navbar-brand h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  #imagenLogo {
+    width: 48px;
+    height: 48px;
+  }
+  .navbar-brand h1 {
+    font-size: 1.25rem;
+  }
+}
+.destacados-section {
+  margin-top: 10rem;
+}
+
+.section-content {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (min-width: 768px) {
+  .section-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  .section-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+#btn-scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#btn-scroll-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+#btn-scroll-top:active {
+  transform: translateY(0);
+}
+#btn-scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tabla-articulos {
+  border: none;
+}
+.tabla-articulos thead th {
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.tabla-articulos tbody tr {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.tabla-articulos tbody tr:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+.tabla-articulos tbody tr:last-child {
+  border-bottom: none;
+}
+.tabla-articulos td {
+  border: none;
+  padding: 1rem 0.75rem;
+}/*# sourceMappingURL=estilos.css.map */
