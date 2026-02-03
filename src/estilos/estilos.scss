@@ -89,7 +89,7 @@ select,
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.08s ease-out;
-  
+
   @media (pointer: coarse) {
     display: none;
   }
@@ -132,12 +132,10 @@ body.hovering .pokeball-bottom {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.7) 100%);
   z-index: -1;
 }
 
@@ -207,16 +205,19 @@ body.hovering .pokeball-bottom {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100%);
   }
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateX(-50%) translateY(0);
   }
+
   50% {
     transform: translateX(-50%) translateY(20px);
   }
@@ -248,22 +249,21 @@ body.hovering .pokeball-bottom {
   margin-top: 10rem;
 }
 
-// Contenedor para uniformar márgenes de todas las secciones
 .section-content {
   padding-left: 2rem;
   padding-right: 2rem;
-  
+
   @media (min-width: 768px) {
     padding-left: 3rem;
     padding-right: 3rem;
   }
-  
+
   @media (min-width: 1200px) {
     padding-left: 4rem;
     padding-right: 4rem;
   }
 }
-// Efecto hover en cards
+
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -273,7 +273,6 @@ body.hovering .pokeball-bottom {
   }
 }
 
-// Botón scroll to top
 #btn-scroll-top {
   position: fixed;
   bottom: 2rem;
@@ -310,29 +309,28 @@ body.hovering .pokeball-bottom {
   }
 }
 
-// Estilos para la tabla de artículos
 .tabla-articulos {
   border: none;
-  
+
   thead th {
     border: none;
     font-weight: 600;
     letter-spacing: 0.02em;
   }
-  
+
   tbody tr {
     transition: background-color 0.2s ease, transform 0.2s ease;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    
+
     &:hover {
       background-color: rgba(37, 99, 235, 0.05);
     }
-    
+
     &:last-child {
       border-bottom: none;
     }
   }
-  
+
   td {
     border: none;
     padding: 1rem 0.75rem;
