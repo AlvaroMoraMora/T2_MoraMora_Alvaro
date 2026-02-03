@@ -90,7 +90,6 @@ select,
   transform: translate(-50%, -50%);
   transition: transform 0.08s ease-out;
   
-  // Ocultar en dispositivos táctiles (móviles/tablets)
   @media (pointer: coarse) {
     display: none;
   }
